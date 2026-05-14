@@ -14,6 +14,7 @@
       .card:focus{outline:3px solid rgba(37,99,235,.18)}
       .card:hover{transform:translateY(-4px)}
       .phrase{font-size:1.05rem;text-align:center}
+      .translation{font-size:.95rem;text-align:center;color:#475569;margin-top:6px}
       .controls{display:flex;gap:12px;align-items:center}
       .small-btn{padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:white;cursor:pointer}
       .muted{font-size:.9rem;color:#475569}
@@ -26,42 +27,49 @@
       <h1>English Speak App</h1>
       <div class="grid" id="grid">
         <div class="card" role="button" tabindex="0" data-text="I need to use the bathroom.">
-          <div class="phrase">I need to use the bathroom.</div>
+          <div>
+            <div class="phrase">I need to use the bathroom.</div>
+            <div class="translation" lang="zh-Hans">我需要上厕所。</div>
+          </div>
         </div>
         <div class="card" role="button" tabindex="0" data-text="I would like to go back to my room.">
-          <div class="phrase">I would like to go back to my room.</div>
+          <div>
+            <div class="phrase">I would like to go back to my room.</div>
+            <div class="translation" lang="zh-Hans">我想回到我的房间。</div>
+          </div>
         </div>
         <div class="card" role="button" tabindex="0" data-text="I need water.">
-          <div class="phrase">I need water.</div>
+          <div>
+            <div class="phrase">I need water.</div>
+            <div class="translation" lang="zh-Hans">我需要水。</div>
+          </div>
         </div>
         <div class="card" role="button" tabindex="0" data-text="I need to sit up.">
-          <div class="phrase">I need to sit up.</div>
+          <div>
+            <div class="phrase">I need to sit up.</div>
+            <div class="translation" lang="zh-Hans">我需要坐起来。</div>
+          </div>
         </div>
         <div class="card" role="button" tabindex="0" data-text="I would like to go to bed.">
-          <div class="phrase">I would like to go to bed.</div>
+          <div>
+            <div class="phrase">I would like to go to bed.</div>
+            <div class="translation" lang="zh-Hans">我想去睡觉。</div>
+          </div>
         </div>
       </div>
 
-      <div class="controls" style="margin-top:8px">
-        <label class="muted">Rate</label>
-        <input id="rate" type="range" min="0.5" max="1.6" step="0.1" value="1">
-        <button id="stop" class="small-btn">Stop</button>
-      </div>
-
-      <footer aria-hidden="false">Tap a box or press Enter/Space when focused to speak.</footer>
+      
     </main>
 
     <script>
       const grid = document.getElementById('grid');
-      const rateEl = document.getElementById('rate');
-      const stopBtn = document.getElementById('stop');
+      // rate slider removed; speech will use default rate
 
       function speak(text){
         if(!text) return;
         window.speechSynthesis.cancel();
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'en-US';
-        u.rate = parseFloat(rateEl.value) || 1;
         // optional: choose a voice similar to en-US if available
         const voices = window.speechSynthesis.getVoices();
         if(voices && voices.length){
@@ -87,7 +95,7 @@
         }
       });
 
-      stopBtn.addEventListener('click', ()=>window.speechSynthesis.cancel());
+      
 
       // Ensure voices are loaded (some browsers load asynchronously)
       if (typeof speechSynthesis !== 'undefined') {

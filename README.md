@@ -20,4 +20,13 @@ Notes
 
 - Speech voices may vary by browser/OS. Ensure audio is enabled and not muted.
 - This app uses the browser `speechSynthesis` API; no server dependencies.
+
+Translations
+
+- The translations shown under each English phrase are Simplified Chinese (简体中文).
+- The app only speaks the English phrases; the Chinese text is for display only.
+
+Purpose
+
+- This small app is intended to help a Chinese grandmother (简体中文使用者) communicate in an English-only nursing home. The visible Simplified Chinese text provides quick reading while the app speaks the English phrase aloud to staff.
 # english-speak-app
